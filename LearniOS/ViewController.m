@@ -60,6 +60,12 @@
     //结束计时
     CFAbsoluteTime linkTime1 = (CFAbsoluteTimeGetCurrent() - startTime1);
     NSLog(@"耗时 %f ms", linkTime1 *1000.0);
+    
+    
+    NSMutableArray *arr = [[NSMutableArray alloc] initWithObjects:@(6), @(1),@(2),@(5),@(9),@(4),@(3),@(7),nil];
+    [self quickSortArray:arr leftindex:0 rightindex:arr.count - 1];
+    NSLog(@"%@",arr);
+    
 }
 
 - (void)didReceiveMemoryWarning {

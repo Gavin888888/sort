@@ -36,4 +36,14 @@
  @param ascendingArr 待排序的数组
  */
 - (void)selectionAscendingOrderSortWithArray:(NSMutableArray *)ascendingArr;
+
+/**
+ 快速排序
+
+ @param array 待排序的数组
+ @param leftIndex 左
+ @param rightIndex 右
+ */
+- (void)quickSortArray:(NSMutableArray *)array leftindex:(NSInteger)leftIndex rightindex:(NSInteger)rightIndex
+;
 @end
