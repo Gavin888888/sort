@@ -94,7 +94,26 @@
     [self quickSortArray:array leftindex:leftIndex rightindex:i - 1];
     //排序基准数右边的
     [self quickSortArray:array leftindex:i + 1 rightindex:rightIndex];
-
+}
+-(void)insertionDescendingOrderSortWithArray:(NSMutableArray *)descendingArr
+{
+    for (int i = 0; i < descendingArr.count; i++) {
+        int a = [descendingArr[i] intValue];
+        for (int j = i - 1; j >= 0 && a > [descendingArr[j] intValue]; j--) {
+            descendingArr[j+1] = descendingArr[j];
+            descendingArr[j] = [NSNumber numberWithInteger:a];
+        }
+    }
+}
+-(void)insertionAscendingOrderSortWithArray:(NSMutableArray *)ascendingArr
+{
+    for (int i = 0; i < ascendingArr.count; i++) {
+        int a = [ascendingArr[i] intValue];
+        for (int j = i - 1; j >= 0 && a < [ascendingArr[j] intValue]; j--) {
+            ascendingArr[j+1] = ascendingArr[j];
+            ascendingArr[j] = [NSNumber numberWithInteger:a];
+        }
+    }
 }
 -(NSMutableString *)logArrayWithArray:(NSMutableArray *)aArray
 {
@@ -103,5 +122,55 @@
         [all appendString:[NSString stringWithFormat:@"%@,",aArray[a]]];
     }
     return all;
+}
+-(void)bulledsortWithArray:(NSMutableArray *)aArray
+{
+    for (int i = 0; i < aArray.count; i++) {
+        for (int j = 0; j < aArray.count - 1 - i; j ++) {
+            int a = [aArray[j] intValue];
+            int b = [aArray[j+1] intValue];
+            if (a > b) {
+                [aArray exchangeObjectAtIndex:j withObjectAtIndex:j+1];
+            }
+            NSLog(@"%@",[self logArrayWithArray:aArray]);
+        }
+    }
+}
+-(void)selectSortWithArray:(NSMutableArray *)aArray
+{
+    for (int i = 0; i < aArray.count; i++) {
+        for (int j = i+1; j < aArray.count ; j ++) {
+            int a = [aArray[i] intValue];
+            int b = [aArray[j] intValue];
+            if (a > b) {
+                [aArray exchangeObjectAtIndex:i withObjectAtIndex:j];
+            }
+            NSLog(@"%@",[self logArrayWithArray:aArray]);
+        }
+    }
+}
+-(void)quickSortWithArray:(NSMutableArray *)aArray leftIndex:(int)leftindex rightIndex:(int)rightindex
+{
+    if (leftindex >= rightindex) {
+        //如果数组长度为0或1时返回
+        return ;
+    }
+    int i = leftindex;
+    int j = rightindex;
+    int key = [aArray[i] intValue];
+    while (i < j) {
+        while (i < j && [aArray[j] intValue] >= key) {
+            j--;
+        }
+        aArray[i] = aArray[j];
+        while (i < j && [aArray[i] intValue] <= key) {
+            i++;
+        }
+        aArray[j] = aArray[i];
+    }
+    aArray[i] = @(key);
+    
+    [self quickSortWithArray:aArray leftIndex:leftindex rightIndex:i-1];
+    [self quickSortWithArray:aArray leftIndex:i+1 rightIndex:rightindex];
 }
 @end

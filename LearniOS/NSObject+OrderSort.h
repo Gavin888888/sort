@@ -44,6 +44,22 @@
  @param leftIndex 左
  @param rightIndex 右
  */
-- (void)quickSortArray:(NSMutableArray *)array leftindex:(NSInteger)leftIndex rightindex:(NSInteger)rightIndex
-;
+- (void)quickSortArray:(NSMutableArray *)array leftindex:(NSInteger)leftIndex rightindex:(NSInteger)rightIndex;
+
+/**
+ 插入降序排
+
+ @param descendingArr 待排序的数组
+ */
+-(void)insertionDescendingOrderSortWithArray:(NSMutableArray *)descendingArr;
+
+/**
+ 插入升序排
+
+ @param ascendingArr 待排序的数组
+ */
+-(void)insertionAscendingOrderSortWithArray:(NSMutableArray *)ascendingArr;
+-(void)bulledsortWithArray:(NSMutableArray *)aArray;
+-(void)selectSortWithArray:(NSMutableArray *)aArray;
+-(void)quickSortWithArray:(NSMutableArray *)aArray leftIndex:(int)leftindex rightIndex:(int)rightindex;
 @end

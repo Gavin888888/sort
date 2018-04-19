@@ -29,49 +29,52 @@
 //    NSLog(@"3");
     //创建待排序的数组
     NSMutableArray *sortArray = [[NSMutableArray alloc] init];
-    for (int i = 0; i < 1000; i++) {
-        int random = arc4random()%1000;
+    for (int i = 0; i < 10; i++) {
+        int random = arc4random()%20;
         if (![sortArray containsObject:@(random)]) {
             [sortArray addObject:@(random)];
         }
     }
-    NSLog(@"待排序的数组=%@",sortArray);
-    
-    //开始计时
-    CFAbsoluteTime startTime =CFAbsoluteTimeGetCurrent();
-    
-    [self bubbleDescendingOrderSortWithArray:sortArray];
+//    NSLog(@"待排序的数组=%@",sortArray);
+//
+//    //开始计时
+//    CFAbsoluteTime startTime =CFAbsoluteTimeGetCurrent();
+//
+//    [self bubbleDescendingOrderSortWithArray:sortArray];
 //    NSLog(@"冒泡降序排列=%@",sortArray);
 //    [self bubbleAscendingOrderSortWithArray:sortArray];
 //    NSLog(@"冒泡升序排列=%@",sortArray);
     
     //结束计时
-    CFAbsoluteTime linkTime = (CFAbsoluteTimeGetCurrent() - startTime);
-    NSLog(@"耗时 %f ms", linkTime *1000.0);
+//    CFAbsoluteTime linkTime = (CFAbsoluteTimeGetCurrent() - startTime);
+//    NSLog(@"耗时 %f ms", linkTime *1000.0);
     
     //开始计时
-    CFAbsoluteTime startTime1 =CFAbsoluteTimeGetCurrent();
+//    CFAbsoluteTime startTime1 =CFAbsoluteTimeGetCurrent();
     
-    [self selectionDescendingOrderSortWithArray:sortArray];
+//    [self selectionDescendingOrderSortWithArray:sortArray];
 //    NSLog(@"选择降序排列=%@",sortArray);
 //    [self selectionAscendingOrderSortWithArray:sortArray];
 //    NSLog(@"选择升序排列=%@",sortArray);
     
     //结束计时
-    CFAbsoluteTime linkTime1 = (CFAbsoluteTimeGetCurrent() - startTime1);
-    NSLog(@"耗时 %f ms", linkTime1 *1000.0);
+//    CFAbsoluteTime linkTime1 = (CFAbsoluteTimeGetCurrent() - startTime1);
+//    NSLog(@"耗时 %f ms", linkTime1 *1000.0);
+//
+//
+//    NSMutableArray *arr = [[NSMutableArray alloc] initWithObjects:@(6), @(1),@(2),@(5),@(9),@(4),@(3),@(7),nil];
+//    [self quickSortArray:arr leftindex:0 rightindex:arr.count - 1];
+//    NSLog(@"%@",arr);
     
+//    [self bulledsortWithArray:sortArray];
+//    [self selectSortWithArray:sortArray];
+//    [self quickSortWithArray:sortArray leftIndex:0 rightIndex:sortArray.count-1];
     
-    NSMutableArray *arr = [[NSMutableArray alloc] initWithObjects:@(6), @(1),@(2),@(5),@(9),@(4),@(3),@(7),nil];
-    [self quickSortArray:arr leftindex:0 rightindex:arr.count - 1];
-    NSLog(@"%@",arr);
-    
+    [self insertionDescendingOrderSortWithArray:sortArray];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
 @end
